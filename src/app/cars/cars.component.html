@@ -1,29 +1,32 @@
-<button [disabled]="!canAddCar" class="btn btn-primary" (click)="addCar()">Add car</button>
-<p *ngIf="addCarStatus; else ss">Машина добавлена</p>
-<ng-template #ss>
-  <p>Машина не добавлена</p>
-</ng-template>
-<p>{{carAdded}}</p>
+<!--<button [disabled]="!canAddCar" class="btn btn-primary" (click)="addCar()">Add car</button>-->
+<!--<p *ngIf="addCarStatus; else ss">Машина добавлена</p>-->
+<!--<ng-template #ss>-->
+  <!--<p>Машина не добавлена</p>-->
+<!--</ng-template>-->
+<!--<p>{{carAdded}}</p>-->
+<input type="text" class="form-control" [(ngModel)]="carName">
+<input type="text" class="form-control" [(ngModel)]="carYear">
+<button class="btn btn-primary" (click)="addCar()">Add car</button>
 <hr>
-<app-car *ngFor="let car of cars"></app-car>
-<ul>
-  <li *ngFor="let item of items; let idx = index">
-    {{idx}} <b>{{item.id}}</b> - <i>{{item.name}} => {{idx}}</i>
-  </li>
-</ul>
-<ul>
-  <li *ngFor="let car of cars; let idx = index">
-    <div
-      [ngStyle]="{backgroundColor: (idx + 1) % 2 === 0 ? '#099BFF' : 'lightblue', 'color': 'red'}"
-      [ngClass]="{'text-left': setText(car)}"
-    >
-      {{idx}} -  <b>{{car}}</b>
-    </div>
-  </li>
-</ul>
-<hr>
-<input type="text" class="form-control" (keyup.enter)="onKeyUp($event)">
-<hr>
-<input type="text" class="form-control" [(ngModel)]="inputText">
+<app-car *ngFor="let car of cars" [carItem]="car"></app-car>
+<!--<ul>-->
+  <!--<li *ngFor="let item of items; let idx = index">-->
+    <!--{{idx}} <b>{{item.id}}</b> - <i>{{item.name}} => {{idx}}</i>-->
+  <!--</li>-->
+<!--</ul>-->
+<!--<ul>-->
+  <!--<li *ngFor="let car of cars; let idx = index">-->
+    <!--<div-->
+      <!--[ngStyle]="{backgroundColor: (idx + 1) % 2 === 0 ? '#099BFF' : 'lightblue', 'color': 'red'}"-->
+      <!--[ngClass]="{'text-left': setText(car)}"-->
+    <!--&gt;-->
+      <!--{{idx}} -  <b>{{car}}</b>-->
+    <!--</div>-->
+  <!--</li>-->
+<!--</ul>-->
+<!--<hr>-->
+<!--<input type="text" class="form-control" (keyup.enter)="onKeyUp($event)">-->
+<!--<hr>-->
+<!--<input type="text" class="form-control" [(ngModel)]="inputText">-->
 
-<p>{{ inputText }}</p>
+<!--<p>{{ inputText }}</p>-->
